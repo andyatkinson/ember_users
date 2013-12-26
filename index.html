@@ -4,75 +4,12 @@
     <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="//builds.emberjs.com/handlebars-1.0.0.js"></script>
     <script src="//builds.emberjs.com/tags/v1.1.2/ember.js"></script>
+    <script src="/assets/javascripts/templates.js"></script>
     <script src="//builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js"></script>
     <script src="/assets/javascripts/localstorage_adapter.js"></script>
     <script src="/assets/javascripts/moment.min.js"></script>
   </head>
   <body>
-
-    <script type="text/x-handlebars" id="application">
-    <div class="main">
-      <h1>Hello World</h1>
-      {{outlet}}
-    </div>
-    </script>
-
-    <script type='text/x-handlebars' id="index">
-      {{#linkTo "users"}}Go to the users page{{/linkTo}}
-    </script>
-
-    <script type='text/x-handlebars' id="user">
-      <button {{action "edit"}}>Edit</button>
-      <button {{action "delete"}}>Delete</button>
-      <div class='user-profile'>
-        {{#if deleteMode}}
-          <div class="confirm-box">
-            <h4>Really?</h4>
-            <button {{action "confirmDelete"}}>yes</button>
-            <button {{action "cancelDelete"}}>no</button>
-          </div>
-        {{/if}}
-        <img {{bind-attr src="avatarUrl"}} alt="User's avatar" />
-        <h2>{{name}}</h2>
-        <span>{{email}}</span>
-        <p>{{bio}}</p>
-        <span>Created {{formatDate creationDate}}</span>
-      </div>
-
-      {{outlet}}
-    </script>
-    
-    <script type="text/x-handlebars" id="users">
-      {{#linkTo "users.create" class="create-btn"}}Add user{{/linkTo}}
-      <ul class="users-listing">
-        {{#each user in controller}}
-          <li>{{#linkTo "user" user}}{{user.name}}{{/linkTo}}</li>
-        {{else}}
-          <li>No users :(</li>
-        {{/each}}
-      </ul>
-      <div>Users: {{usersCount}}</div>
-
-      {{outlet}}
-    </script>
-
-    <script type='text/x-handlebars' id="user/edit">
-      <div class='user-edit'>
-        <label>Choose your avatar</label>
-        {{input value=avatarUrl}}
-
-        <label>User name</label>
-        {{input value=name}}
-
-        <label>User email</label>
-        {{input value=email}}
-
-        <label>User short bio</label>
-        {{textarea value=bio}}
-      </div>
-
-      <button {{action "save"}}>Save</button>
-    </script>
 
     <script src="/assets/javascripts/app.js"></script>
     <script src="/assets/javascripts/models/user.js"></script>
