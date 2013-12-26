@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>ember users</title>
+    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="//builds.emberjs.com/handlebars-1.0.0.js"></script>
+    <script src="//builds.emberjs.com/tags/v1.1.2/ember.js"></script>
+    <script src="//builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js"></script>
+  </head>
+  <body>
+
+    <script type="text/x-handlebars" id="application">
+    <div class="main">
+      <h1>Hello World</h1>
+      {{outlet}}
+    </div>
+    </script>
+
+    <script type="text/x-handlebars" id="users">
+      <ul class="users-listing">
+        {{#each user in controller}}
+          <li>{{user.name}}</li>
+        {{else}}
+          <li>No users :(</li>
+        {{/each}}
+      </ul>
+      <div>Users: {{usersCount}}</div>
+    </script>
+
+    <script src="/assets/javascripts/app.js"></script>
+    <script src="/assets/javascripts/models/user.js"></script>
+    <script src="/assets/javascripts/router.js"></script>
+    <script src="/assets/javascripts/routes/usersRoute.js"></script>
+    <script src="/assets/javascripts/controllers/usersController.js"></script>
+    <script src="/assets/javascripts/store.js"></script>
+  </body>
+</html>
